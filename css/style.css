@@ -1,0 +1,25 @@
+
+.w-full {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-flow: row;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.logo-img {
+    height: 50px;
+    margin: 10px;
+}
