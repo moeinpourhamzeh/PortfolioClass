@@ -26,9 +26,18 @@ var course = new Course()
 function saveCourse() {
     const title = document.querySelector('#courseTitle').value
     const time = document.querySelector('#courseTime').value
+    const main = document.querySelector('main');
 
     course.title = title
     course.time = time
 
-    console.log(course)
+    var briefContainer = `
+        <div id="briefContainer">
+           <div>${course.title}</div>
+           <div>${course.time}</div>
+           <button>Add Student</button>
+        </div>
+    `
+
+    main.innerHTML = briefContainer
 }
