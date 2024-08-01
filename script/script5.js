@@ -24,8 +24,8 @@ var course = new Course()
 
 
 function saveCourse() {
-    const title = document.querySelector('#courseTitle').value
-    const time = document.querySelector('#courseTime').value
+    const title = '' + document.querySelector('#courseTitle').value
+    const time = '' + document.querySelector('#courseTime').value
     const main = document.querySelector('main');
 
     course.title = title
@@ -40,13 +40,40 @@ function saveCourse() {
             <input type="text" placeholder="First name ..." id="firstName">
             <input type="text" placeholder="Last name ..." id="lastName">
             <input type="number" placeholder="Age ..." id="age">
-            <button>Add Student</button>
+            <button onclick="addStudent()">Add Student</button>
         </div>
     `
 
     main.innerHTML = briefContainer
 }
 
-function AddStudent() {
+function addStudent() {
+    var firstName = '' + document.querySelector('#firstName').value
+    var lastName = '' + document.querySelector('#lastName').value
+    var age = parseInt(document.querySelector('#age').value)
+
+    var student = new Student(firstName, lastName, age)
+
+    course.students.push(student)
+
+    var studentsContainer = document.querySelector('#studentsContainer')
+
+    var cardsArray = ''
+
+    course.students.forEach((student) => {
+        var card = `
+            <div class="card">
+                <h2>${student.firstName}</h2>
+                <h2>${student.lastName}</h2>
+                <h2>${student.age}</h2>
+                <button style="color: red">Delete Student</button>
+                <button style="color: green">Edit Student</button>
+            </div>
+        `
+        cardsArray = cardsArray + card
+    })
+
+    studentsContainer.innerHTML = cardsArray
+
 
 }
