@@ -35,9 +35,18 @@ function saveCourse() {
         <div id="briefContainer">
            <div>${course.title}</div>
            <div>${course.time}</div>
-           <button>Add Student</button>
+        </div>
+        <div id="studentInputContainer">
+            <input type="text" placeholder="First name ..." id="firstName">
+            <input type="text" placeholder="Last name ..." id="lastName">
+            <input type="number" placeholder="Age ..." id="age">
+            <button>Add Student</button>
         </div>
     `
 
     main.innerHTML = briefContainer
+}
+
+function AddStudent() {
+
 }
