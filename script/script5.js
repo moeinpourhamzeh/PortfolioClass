@@ -56,17 +56,26 @@ function addStudent() {
 
     course.students.push(student)
 
+    showCards()
+}
+
+function deleteStudent(index) {
+    course.students.splice(index, 1)
+    showCards()
+}
+
+function showCards() {
     var studentsContainer = document.querySelector('#studentsContainer')
 
     var cardsArray = ''
 
-    course.students.forEach((student) => {
+    course.students.forEach((student, index) => {
         var card = `
             <div class="card">
                 <h2>${student.firstName}</h2>
                 <h2>${student.lastName}</h2>
                 <h2>${student.age}</h2>
-                <button style="color: red">Delete Student</button>
+                <button style="color: red" onclick="deleteStudent(${index})">Delete Student</button>
                 <button style="color: green">Edit Student</button>
             </div>
         `
@@ -74,6 +83,4 @@ function addStudent() {
     })
 
     studentsContainer.innerHTML = cardsArray
-
-
 }
